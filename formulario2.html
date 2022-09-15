@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Actividad 2 </title>  
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <style>  
+            h1 {  
+            text-align: center;  
+            padding: 30px;  
+            background-color: slateblue;  
+            color: white;  
+            }  
+        
+            #pa2 {  
+            width: 50%;  
+            border: 3px solid slateblue;  
+            border-radius: 5px;  
+            padding: 10px;  
+            }  
+            
+        </style>  
+    </head>
+    <body>
+        <div class = "container">
+            <h1> Actividad 2 </h1>
+            <form method="POST" action="/consola/A2">
+                <h2> Palíndromo </h2>
+                <div class = "form-control">
+                    <label class="form-label" for="" > Escribe una palabra : </label>   
+                    <input type = "text" class="form-control" placeholder="Ingrese datos" id = "pa" name = "palabra"/> <br> <br>  
+                    <label class="form-label" for="" > Resultado : </label>   
+                    <input type = "text" class="form-control" placeholder="Ingrese datos" id = "pa2" /> </b> <br>   
+                    <input type = "button" value="Comprobar" onclick = "palindrome()" > <br>
+                </div>
+
+                <h2> Lenguaje F</h2>
+                <div class = "form-control">
+                    <label class="form-label" for="" > Escribe una palabra en lenguaje F : </label>   
+                    <input type = "text" class="form-control" placeholder="Ingrese datos" id = "na" name="frase" /> <br> <br>  
+                    <label class="form-label" for="" > Resultado en español : </label>   
+                    <input type = "text" class="form-control" placeholder="Ingrese datos" id = "na2" /> </b> <br>   
+                    <input type = "button" value="Traducir" onclick = "traducirF()" > <br>
+                </div>
+
+                <div class="row">
+                    <input type="reset" class="btn btn-primary">
+                    <input type="submit" class="btn btn-danger">
+                </div>
+            </form>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>      
+    <script type = "text/javascript">  
+        function palindrome(){  
+            var a = document.getElementById("pa").value;  
+            var b = "";
+
+            for (i = a.length-1; i >= 0; i--){
+                b = b + a[i]  
+            }
+            
+            if (a == "") {
+                document.getElementById("pa2"). value = "Intenta escribir ana :)";}
+            else if (a == b){
+                document.getElementById("pa2"). value = b + " es un palíndromo!";}
+            else{
+                document.getElementById("pa2"). value = b + " NO es un palíndromo!";}
+        }
+
+        function isVocal(element) {
+            switch (element) {
+                case "a":
+                    return "a"
+                case "e":
+                    return "e"
+                case "i":
+                    return "i"
+                case "o":
+                    return "o"
+                case "u":
+                    return "u"
+                case "A":
+                    return "A"
+                case "E":
+                    return "E"
+                case "I":
+                    return "I"
+                case "O":
+                    return "O"
+                case "U":
+                    return "U"
+                default:
+                    return -1;
+            }
+        }
+
+        function traducirF(){
+            var a = document.getElementById("na").value;  
+            var b = "";
+
+            for (let index = 0; index < a.length; index++) {
+                const element = a[index];
+
+                if (isVocal(element) != -1) {
+                    b = b + element + "f" + String(isVocal(element))
+                }
+                else {
+                    b = b + element
+                }
+                
+            }
+            document.getElementById("na2"). value = b;
+        }
+    </script>  
+</html> 
