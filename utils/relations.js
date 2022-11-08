@@ -6,8 +6,10 @@ function applyRelations(sequelize){
 
     // Una Universidad puede tener varios investigadores
     Universidad.hasMany(Investigador);
+    Investigador.belongsTo(Universidad);
     // Un investigador puede tener varios proyectosdoctorado
     Investigador.hasMany(Proyectodoctorado);
+    Proyectodoctorado.belongsTo(Investigador);
 }
 
 module.exports = {applyRelations};

@@ -3,15 +3,21 @@ const express = require('express');
 
 // Traer el objeto de conexion sequelize
 const sequelize = require("./utils/database")
+
+
 const path = require('path');
-const consolaRoutes = require('./routes/consola')
+const universidadRoutes = require('./routes/universidad')
+const investigadorRoutes = require('./routes/investigador')
+const proyectodoctoradoRoutes = require('./routes/proyectodoctorado')
 const app = express();
 
 // Middleware 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/consola',consolaRoutes);
+app.use('/universidad', universidadRoutes);
+app.use('/investigador', investigadorRoutes);
+app.use('/proyectodoctorado', proyectodoctoradoRoutes);
 
 // Recursos
 
